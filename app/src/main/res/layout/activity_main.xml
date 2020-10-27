@@ -12,7 +12,6 @@
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:background="@drawable/buttoncolors"
-        android:onClick="validar"
         android:soundEffectsEnabled="true"
         android:tint="#5ECBDA"
         app:layout_constraintEnd_toStartOf="@+id/pause"
@@ -101,5 +100,28 @@
         app:layout_constraintTop_toTopOf="@+id/pause"
         app:srcCompat="@android:drawable/picture_frame"
         tools:srcCompat="@android:drawable/checkbox_off_background" />
+
+    <com.gauravk.audiovisualizer.visualizer.BlastVisualizer
+        android:id="@+id/blast"
+        android:layout_width="282dp"
+        android:layout_height="266dp"
+        app:avColor="@color/themeColor3"
+        app:avDensity="0.8"
+        app:avSpeed="normal"
+        app:avType="outline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/logoreativa"
+        android:layout_width="149dp"
+        android:layout_height="208dp"
+        app:layout_constraintBottom_toBottomOf="@+id/blast"
+        app:layout_constraintEnd_toEndOf="@+id/blast"
+        app:layout_constraintStart_toStartOf="@+id/blast"
+        app:layout_constraintTop_toTopOf="@+id/blast"
+        app:srcCompat="@drawable/ativo_13" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

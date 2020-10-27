@@ -19,16 +19,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import com.gauravk.audiovisualizer.visualizer.BlastVisualizer;
+import com.gauravk.audiovisualizer.visualizer.CircleLineVisualizer;
+
 import java.io.IOException;
 import java.util.Date;
 
 import static android.Manifest.permission.RECORD_AUDIO;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
     private ImageButton recordbtn, stopbtn, playbtn, stopplay, pausebtn;
     private MediaRecorder mRecorder;
     private MediaPlayer mPlayer;
+    BlastVisualizer mVisualizer;
+    CircleLineVisualizer clVisualizer;
     private static final String LOG_TAG = "AudioRecording";
     private static String mFileName = null;
     public static final int REQUEST_AUDIO_PERMISSION_CODE = 1;
@@ -47,16 +53,15 @@ public class MainActivity extends AppCompatActivity {
         playbtn = (ImageButton)findViewById(R.id.play);
         stopplay = (ImageButton)findViewById(R.id.stopplay);
         pausebtn = (ImageButton)findViewById(R.id.pause);
+        mVisualizer = findViewById(R.id.blast);
+        //CircleVisualizer circleVisualizer = findViewById(R.id.visualizer);
+        //audioRecordView = findViewById(R.id.audioRecordView);
         stopbtn.setEnabled(false);
         playbtn.setEnabled(false);
         stopplay.setEnabled(false);
 
         mFileName = (Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "MyFetus" +createdTime + "Audio.m4a").replaceAll(" ", "_").replaceAll(":", "-");
-       // mFileName += createdTime;
-       // mFileName += "/AudioRecording.3gp";
-
         test1 = findViewById(R.id.texto2);
-        // editsenha1= findViewById(R.id.senha);
          editImagem = findViewById(R.id.imageView4);
 
         recordbtn.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
                         mRecorder.setOutputFile(mFileName);
                         try {
                             mRecorder.prepare();
+
                         } catch (IOException e) {
                             Log.e(LOG_TAG, "prepare() failed");
                         }
@@ -125,6 +131,10 @@ public class MainActivity extends AppCompatActivity {
                     mPlayer.setDataSource(mFileName);
                     mPlayer.prepare();
                     mPlayer.start();
+                    int audioSessionId = mPlayer.getAudioSessionId();
+                    if (audioSessionId != -1)
+                        mVisualizer.show();
+                        mVisualizer.setAudioSessionId(audioSessionId);
                     Toast.makeText(getApplicationContext(), "Recording Started Playing", Toast.LENGTH_LONG).show();
                 } catch (IOException e) {
                     Log.e(LOG_TAG, "prepare() failed");
@@ -148,6 +158,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mPlayer.release();
+                if (mVisualizer != null) {
+                    mVisualizer.release();
+                    mVisualizer.hide();
+                }
                 mPlayer = null;
                 stopbtn.setEnabled(false);
                 recordbtn.setEnabled(true);
@@ -160,6 +174,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         switch (requestCode) {
@@ -184,9 +199,4 @@ public class MainActivity extends AppCompatActivity {
     private void RequestPermissions() {
         ActivityCompat.requestPermissions(MainActivity.this, new String[]{RECORD_AUDIO, WRITE_EXTERNAL_STORAGE}, REQUEST_AUDIO_PERMISSION_CODE);
     }
-    public void validar(View v){
-        //int senha1= Integer.parseInt(editsenha1.getText().toString());
-    }
-
-
 }

@@ -5,6 +5,7 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="themeColor1">#fee0ff</color>]
     <color name="themeColor2">#d4fff0</color>
+    <color name="themeColor3">#F1B2B9</color>
     <color name="textos">#000000</color>
     <color name="centrebg">#FFF</color>
 </resources>

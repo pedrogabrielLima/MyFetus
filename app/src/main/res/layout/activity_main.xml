@@ -24,7 +24,7 @@
         android:id="@+id/texto2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/alegreya_sc"
         android:text="Aperte para gravar"
         android:textColor="#FADCEE"

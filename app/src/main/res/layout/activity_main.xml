@@ -12,7 +12,6 @@
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:background="@drawable/buttoncolors"
-        android:onClick="validar"
         android:soundEffectsEnabled="true"
         android:tint="#5ECBDA"
         app:layout_constraintEnd_toStartOf="@+id/pause"
@@ -24,7 +23,7 @@
         android:id="@+id/texto2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/alegreya_sc"
         android:text="Aperte para gravar"
         android:textColor="#FADCEE"
@@ -37,23 +36,25 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="350dp"
-        android:layout_height="270dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="31dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/record"
-        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/logo" />
 
     <ImageButton
         android:id="@+id/pause"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="348dp"
         android:background="@drawable/buttoncolors"
         android:tint="#5ECBDA"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_media_pause" />
@@ -62,13 +63,13 @@
         android:id="@+id/record"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/buttonradius"
         android:scaleType="fitCenter"
         android:tint="#F44639"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="@+id/stopplay"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="@+id/play"
         app:layout_constraintTop_toBottomOf="@+id/pause"
         app:srcCompat="@drawable/ic_record"
@@ -77,16 +78,16 @@
     <ImageButton
         android:id="@+id/stopRecord"
         android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="24dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="1dp"
         android:background="@drawable/buttonradius"
         android:scaleType="centerInside"
         android:tint="#F44639"
         android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="@+id/stopplay"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="@+id/play"
-        app:layout_constraintTop_toBottomOf="@+id/pause"
+        app:layout_constraintBottom_toBottomOf="@+id/record"
+        app:layout_constraintEnd_toEndOf="@+id/record"
+        app:layout_constraintStart_toStartOf="@+id/record"
+        app:layout_constraintTop_toTopOf="@+id/record"
         app:srcCompat="@drawable/recordstopbutton" />
 
     <ImageButton
@@ -101,5 +102,29 @@
         app:layout_constraintTop_toTopOf="@+id/pause"
         app:srcCompat="@android:drawable/picture_frame"
         tools:srcCompat="@android:drawable/checkbox_off_background" />
+
+    <com.gauravk.audiovisualizer.visualizer.BlastVisualizer
+        android:id="@+id/blast"
+        android:layout_width="282dp"
+        android:layout_height="266dp"
+        android:layout_marginTop="32dp"
+        app:avColor="@color/themeColor3"
+        app:avDensity="0.8"
+        app:avSpeed="normal"
+        app:avType="outline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/logoreativa"
+        android:layout_width="149dp"
+        android:layout_height="208dp"
+        app:layout_constraintBottom_toBottomOf="@+id/blast"
+        app:layout_constraintEnd_toEndOf="@+id/blast"
+        app:layout_constraintStart_toStartOf="@+id/blast"
+        app:layout_constraintTop_toTopOf="@+id/blast"
+        app:srcCompat="@drawable/ativo_13" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

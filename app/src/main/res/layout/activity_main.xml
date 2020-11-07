@@ -107,14 +107,14 @@
         android:id="@+id/blast"
         android:layout_width="282dp"
         android:layout_height="266dp"
-        android:layout_marginTop="32dp"
         app:avColor="@color/themeColor3"
         app:avDensity="0.8"
         app:avSpeed="normal"
         app:avType="outline"
+        app:layout_constraintBottom_toTopOf="@+id/pause"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/texto2" />
 
     <ImageView
         android:id="@+id/logoreativa"

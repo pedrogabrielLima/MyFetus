@@ -22,7 +22,7 @@ import android.widget.Toast;
 
 import com.gauravk.audiovisualizer.visualizer.BlastVisualizer;
 import com.gauravk.audiovisualizer.visualizer.CircleLineVisualizer;
-
+import com.gauravk.audiovisualizer.visualizer.BlobVisualizer;
 import java.io.IOException;
 import java.util.Date;
 
@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity{
     private MediaPlayer mPlayer;
     BlastVisualizer mVisualizer;
     CircleLineVisualizer clVisualizer;
+    BlobVisualizer blVisualizer;
     private static final String LOG_TAG = "AudioRecording";
     private static String mFileName = null;
     public static final int REQUEST_AUDIO_PERMISSION_CODE = 1;
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity{
         playbtn = (ImageButton)findViewById(R.id.play);
         stopplay = (ImageButton)findViewById(R.id.stopplay);
         pausebtn = (ImageButton)findViewById(R.id.pause);
-        mVisualizer = findViewById(R.id.blast);
+        clVisualizer = findViewById(R.id.circleLine);
         //CircleVisualizer circleVisualizer = findViewById(R.id.visualizer);
         //audioRecordView = findViewById(R.id.audioRecordView);
         stopbtn.setEnabled(false);
@@ -133,8 +134,8 @@ public class MainActivity extends AppCompatActivity{
                     mPlayer.start();
                     int audioSessionId = mPlayer.getAudioSessionId();
                     if (audioSessionId != -1)
-                        mVisualizer.show();
-                        mVisualizer.setAudioSessionId(audioSessionId);
+                        clVisualizer.show();
+                    clVisualizer.setAudioSessionId(audioSessionId);
                     //Toast.makeText(getApplicationContext(), "Recording Started Playing", Toast.LENGTH_LONG).show();
                 } catch (IOException e) {
                     Log.e(LOG_TAG, "prepare() failed");
@@ -158,9 +159,9 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 mPlayer.release();
-                if (mVisualizer != null) {
-                    mVisualizer.release();
-                    mVisualizer.hide();
+                if (clVisualizer != null) {
+                    clVisualizer.release();
+                    clVisualizer.hide();
                 }
                 mPlayer = null;
                 stopbtn.setEnabled(false);

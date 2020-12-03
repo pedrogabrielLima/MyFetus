@@ -103,27 +103,40 @@
         app:srcCompat="@android:drawable/picture_frame"
         tools:srcCompat="@android:drawable/checkbox_off_background" />
 
-    <com.gauravk.audiovisualizer.visualizer.BlastVisualizer
-        android:id="@+id/blast"
-        android:layout_width="282dp"
-        android:layout_height="266dp"
-        android:layout_marginTop="32dp"
+    <com.gauravk.audiovisualizer.visualizer.CircleLineVisualizer
+        android:id="@+id/circleLine"
+        android:layout_width="349dp"
+        android:layout_height="339dp"
+        android:layout_marginTop="10dp"
         app:avColor="@color/themeColor3"
         app:avDensity="0.8"
-        app:avSpeed="normal"
-        app:avType="outline"
+        app:avSpeed="fast"
+        app:avWidth="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.gauravk.audiovisualizer.visualizer.BlobVisualizer
+        android:id="@+id/blob"
+        android:layout_width="246dp"
+        android:layout_height="234dp"
+        app:avColor="@color/themeColor2"
+        app:avDensity="0.8"
+        app:avSpeed="normal"
+        app:avType="fill"
+        app:layout_constraintBottom_toBottomOf="@+id/circleLine"
+        app:layout_constraintEnd_toEndOf="@+id/circleLine"
+        app:layout_constraintStart_toStartOf="@+id/circleLine"
+        app:layout_constraintTop_toTopOf="@+id/circleLine" />
 
     <ImageView
         android:id="@+id/logoreativa"
         android:layout_width="149dp"
         android:layout_height="208dp"
-        app:layout_constraintBottom_toBottomOf="@+id/blast"
-        app:layout_constraintEnd_toEndOf="@+id/blast"
-        app:layout_constraintStart_toStartOf="@+id/blast"
-        app:layout_constraintTop_toTopOf="@+id/blast"
+        app:layout_constraintBottom_toBottomOf="@+id/circleLine"
+        app:layout_constraintEnd_toEndOf="@+id/circleLine"
+        app:layout_constraintStart_toStartOf="@+id/circleLine"
+        app:layout_constraintTop_toTopOf="@+id/circleLine"
         app:srcCompat="@drawable/ativo_13" />
 
 
